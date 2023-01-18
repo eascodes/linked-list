@@ -80,7 +80,58 @@ const LinkListFactory = () => {
         }
     }
 
-    return {append, prepend, size, headNode, tail, at, pop};
+    const contains = (value) => {
+        if (head === null) {
+            console.log("There is no linked list.");
+        } else {
+            let current = head;
+            while (current.next != null) {
+                if (current.value === value) {
+                    return true;
+                }
+                current = current.next;
+            }
+            if (current.value != value) {
+                return false;
+            } else return true;
+        }
+    }
+
+    const find = (value) => {
+        if (head === null) {
+            console.log("There is no linked list.");
+        } else {
+            let current = head;
+            let index = 0;
+            while (current.next != null) {
+                if (current.value === value) {
+                    return index;
+                }
+                index++;
+                current = current.next;
+            }
+            if (current.value != value) {
+                return "This value cannot be found.";
+            } else return index;
+        }
+    }
+
+    const toString = () => {
+        if (head === null) {
+            console.log("There is no linked list.");
+        } else {
+            let current = head;
+            let str = "";
+            while (current.next != null) {
+                str = str + `( ${current.value} ) -> `;
+                current = current.next;
+            }
+            str = str + `( ${current.value} ) -> null`;
+            return str;
+        }
+    }
+
+    return {append, prepend, size, headNode, tail, at, pop, contains, find, toString};
 };
 
 const NodeFactory = (value) => {
@@ -94,7 +145,3 @@ const NodeFactory = (value) => {
 };
 
 const linkedList = LinkListFactory();
-
-linkedList.append(1);
-linkedList.append(2);
-linkedList.append(3);
