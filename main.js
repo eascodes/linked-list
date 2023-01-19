@@ -2,6 +2,10 @@ const LinkListFactory = () => {
     let head = null;
     let length = 0;
 
+    const handleError = () => { 
+        return "A linked list does not exist yet."; 
+    }
+
     // Add node to the end of list
     const append = (value) => {
         let node = NodeFactory(value);
@@ -38,7 +42,7 @@ const LinkListFactory = () => {
     // Return first node in list
     const headNode = () => {
         if (head === null) {
-            console.log("There is no head.");
+            return handleError();
         } else {
             return head;
         }
@@ -47,7 +51,7 @@ const LinkListFactory = () => {
     // Return last node in list
     const tail = () => {
         if (head === null) {
-            console.log("There is no tail.")
+            return handleError();
         } else {
             let current = head;
             while (current.next != null) {
@@ -60,7 +64,7 @@ const LinkListFactory = () => {
     // Return node at given index
     const at = (index) => {
         if (head === null) {
-            console.log("There is no linked list.");
+            return handleError();
         } else {
             let current = head;
             for (let i=0; i<index; i++) {
@@ -77,7 +81,10 @@ const LinkListFactory = () => {
     // Remove last node from list
     const pop = () => {
         if (head === null) {
-            console.log("There is no linked list.");
+            return handleError();
+        } else if (length === 1) {
+            head = null;
+            length = 0;
         } else {
             let current = head;
             while (current.next.next != null) {
@@ -91,7 +98,7 @@ const LinkListFactory = () => {
     // Return true if passed value is in the list, otherwise return false
     const contains = (value) => {
         if (head === null) {
-            console.log("There is no linked list.");
+            return handleError();
         } else {
             let current = head;
             while (current.next != null) {
@@ -109,7 +116,7 @@ const LinkListFactory = () => {
     // Return index of node containing the passed value
     const find = (value) => {
         if (head === null) {
-            console.log("There is no linked list.");
+            return handleError();
         } else {
             let current = head;
             let index = 0;
@@ -129,7 +136,7 @@ const LinkListFactory = () => {
     // Return string representation of list
     const toString = () => {
         if (head === null) {
-            console.log("There is no linked list.");
+            return handleError();
         } else {
             let current = head;
             let str = "";
