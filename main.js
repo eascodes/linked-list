@@ -77,6 +77,7 @@ const LinkListFactory = () => {
                 current = current.next;
             }
             current.next = null;
+            length--;
         }
     }
 
