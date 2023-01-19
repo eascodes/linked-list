@@ -2,6 +2,7 @@ const LinkListFactory = () => {
     let head = null;
     let length = 0;
 
+    // Add node to the end of list
     const append = (value) => {
         let node = NodeFactory(value);
 
@@ -17,6 +18,7 @@ const LinkListFactory = () => {
         length++;
     }
 
+    // Add node to the beginning of list
     const prepend = (value) => {
         let node = NodeFactory(value);
 
@@ -30,8 +32,10 @@ const LinkListFactory = () => {
         length++;
     }
 
+    // Return size of list
     const size = () => { return length };
 
+    // Return first node in list
     const headNode = () => {
         if (head === null) {
             console.log("There is no head.");
@@ -40,6 +44,7 @@ const LinkListFactory = () => {
         }
     }
 
+    // Return last node in list
     const tail = () => {
         if (head === null) {
             console.log("There is no tail.")
@@ -52,22 +57,24 @@ const LinkListFactory = () => {
         }
     }
 
+    // Return node at given index
     const at = (index) => {
         if (head === null) {
             console.log("There is no linked list.");
         } else {
             let current = head;
             for (let i=0; i<index; i++) {
-                if (current.next === null) {
-                    return "An item at that index does not exist";
-                } else {
+                 if (current.next === null) {
+                     return "An item at that index does not exist";
+                 } else {
                     current = current.next;
-                }
+                 }
             }
             return current;
         } 
     }
 
+    // Remove last node from list
     const pop = () => {
         if (head === null) {
             console.log("There is no linked list.");
@@ -81,6 +88,7 @@ const LinkListFactory = () => {
         }
     }
 
+    // Return true if passed value is in the list, otherwise return false
     const contains = (value) => {
         if (head === null) {
             console.log("There is no linked list.");
@@ -98,6 +106,7 @@ const LinkListFactory = () => {
         }
     }
 
+    // Return index of node containing the passed value
     const find = (value) => {
         if (head === null) {
             console.log("There is no linked list.");
@@ -117,6 +126,7 @@ const LinkListFactory = () => {
         }
     }
 
+    // Return string representation of list
     const toString = () => {
         if (head === null) {
             console.log("There is no linked list.");
